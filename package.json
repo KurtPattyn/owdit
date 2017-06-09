@@ -42,6 +42,7 @@
   "devDependencies": {
     "eslint": "3.*",
     "eslint-plugin-jsdoc": "3.*",
-    "eslint-plugin-security": "1.*"
+    "eslint-plugin-security": "1.*",
+    "jsdoc": "^3.4.3"
   }
 }

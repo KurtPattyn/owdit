@@ -3,8 +3,12 @@ const subcommand = require("subcommand");
 const defaultFormatter = require("../lib/formatters/default");
 const owdit = require("..");
 
-function usage()
-{
+/**
+ * Prints out (using console.log) how owdit should be invoked from the command line
+ * @return {void} Returns nothing
+ * @private
+ */
+function usage() {
   console.log(`
   usage: owdit [--flag]
 
@@ -25,8 +29,14 @@ function usage()
   `);
 }
 
-function onCommand(args)
-{
+/**
+ * Called when owdit was invoked. The command-line arguments are parsed, interpreted and attached
+ * to the args argument.
+ * @param  {Object} args - contains the arguments passed to the command line (see subcommand documentation)
+ * @return {null}
+ * @private
+ */
+function onCommand(args) {
   if (args.version) {
     return console.log(require("../package.json").version);
   }
@@ -37,21 +47,23 @@ function onCommand(args)
   owdit.check(process.cwd(), (err, vulnerabilityReport) => {
     if (err) {
       console.error(err);
-      process.exitCode = -1;
+      process.exitCode = -1;  //eslint-disable-line no-magic-numbers
     } else {
       console.log(args.output.format(vulnerabilityReport));
       process.exitCode = vulnerabilityReport.vulnerabilityCount;
     }
   });
+
+  return null;
 }
 
 const config = {
   root: {
-    name: "",
+    name:    "",
     options: [
       {
-        name: "version",
-        abbr: "v",
+        name:    "version",
+        abbr:    "v",
         boolean: false
       }
     ],
@@ -60,23 +72,20 @@ const config = {
   commands: [],
   defaults: [
     {
-      name: "help",
+      name:    "help",
       boolean: true,
-      abbr: "h",
-      alias: "?"
+      abbr:    "h",
+      alias:   "?"
     },
     {
-      name: "output",
+      name:    "output",
       boolean: false,
       default: defaultFormatter,
-      abbr: "o"
+      abbr:    "o"
     }
   ]
-  // none: function (args) {
-  //   usage();
-  //   process.exit(1);
-  // }
 };
 
 const route = subcommand(config);
-route(process.argv.slice(2));
+
+route(process.argv.slice(2));  //eslint-disable-line no-magic-numbers
