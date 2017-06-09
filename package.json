@@ -1,0 +1,48 @@
+{
+  "name": "owdit",
+  "description": "Audits dependencies for known vulnerabilities.",
+  "version": "1.0.0",
+  "author": "Pattyn Kurt <pattyn.kurt@gmail.com>",
+  "keywords": [
+    "security",
+    "nsp",
+    "nodesecurity",
+    "vulnerability",
+    "ossindex",
+    "nvd",
+    "nist",
+    "audit",
+    "CVE"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "bin": {
+    "owdit": "bin/owdit.js"
+  },
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/KurtPattyn/owdit"
+  },
+  "scripts": {
+    "code-analysis": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "index.js",
+    "lib/**/*",
+    "bin/**/*"
+  ],
+  "dependencies": {
+    "chalk": "1.*",
+    "cli-table": "^0.3.1",
+    "executive": "1.*",
+    "node-rest-client": "3.*",
+    "subcommand": "2.*"
+  },
+  "devDependencies": {
+    "eslint": "3.*",
+    "eslint-plugin-jsdoc": "3.*",
+    "eslint-plugin-security": "1.*"
+  }
+}
