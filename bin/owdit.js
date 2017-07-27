@@ -17,6 +17,16 @@ function usage() {
   When there is a mismatch between what is installed in \`node_modules\` and what is specified
   in \`package.json\` an error is thrown. In that case \`npm prune\` can be used to clear any
   extraneous packages and \`npm install\` to install missing packages.
+  When desirable, one can specify packages to be excluded from owdit's check in a \`.owditrc\` file in
+  the same folder as \`package.json\`:
+
+    {
+      "excludes": [ "foo", "bar" ],
+      "warns": [ "baz" ]
+    }
+
+  Vulnerabilities in packages foo and bar will be ignored. Vulnerabilities in baz will get reported
+  but won't make owdit's check fail (i.e. contribute to a non-zero exit code).
 
   Flags:
     --version (-v)            - Prints the owdit version
@@ -50,7 +60,7 @@ function onCommand(args) {
       process.exitCode = -1;  //eslint-disable-line no-magic-numbers
     } else {
       console.log(args.output.format(vulnerabilityReport));
-      process.exitCode = vulnerabilityReport.vulnerabilityCount;
+      process.exitCode = vulnerabilityReport.vulnerabilityFailCount;
     }
   });
 
