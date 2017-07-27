@@ -17,7 +17,7 @@ function usage()
   the same folder as \`package.json\`:
 
     {
-      "excludes": [ "foo", "bar" ]
+      "excludes": [ "foo", "bar" ],
       "warns": [ "baz" ]
     }
 

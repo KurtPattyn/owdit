@@ -25,7 +25,7 @@ When desirable, one can specify packages to be excluded from owdit's check in a 
 
 ```json
 {
-  "excludes": [ "foo", "bar" ]
+  "excludes": [ "foo", "bar" ],
   "warns": [ "baz" ]
 }
 ```
