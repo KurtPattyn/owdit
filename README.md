@@ -21,11 +21,11 @@ When vulnerabilities are found, `owdit` prints out a pretty-formatted report.
 The exit code of `owdit` is the number of found vulnerabilities or _-1_ on error.
 
 ##### Ignoring vulnerabilities in specific packages
-When desirable, one can specify packages to be excluded from owdit's check in a `.owditrc` file in the same folder as `package.json`:
+When desirable, one can specify packages with or without a version number to be excluded from owdit's check in a `.owditrc` file in the same folder as `package.json`:
 
 ```json
 {
-  "excludes": [ "foo", "bar" ],
+  "excludes": [ "foo", "bar", "woot@3.5.4" ],
   "warns": [ "baz" ]
 }
 ```
