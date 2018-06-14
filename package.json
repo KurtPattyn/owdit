@@ -1,7 +1,7 @@
 {
   "name": "owdit",
   "description": "Audits dependencies for known vulnerabilities.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Pattyn Kurt <pattyn.kurt@gmail.com>",
   "contributors": [
     "Long Truong <yypsch@gmail.com>"
