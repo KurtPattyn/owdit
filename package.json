@@ -1,7 +1,7 @@
 {
   "name": "owdit",
   "description": "Audits dependencies for known vulnerabilities.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Pattyn Kurt <pattyn.kurt@gmail.com>",
   "contributors": [
     "Long Truong <yypsch@gmail.com>"
@@ -26,7 +26,9 @@
   "repository": "KurtPattyn/owdit",
   "scripts": {
     "code-analysis": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "README.md",
@@ -41,12 +43,14 @@
     "executive": "1.*",
     "find-root": "^1.1.0",
     "node-rest-client": "3.*",
-    "subcommand": "2.*"
+    "subcommand": "2.*",
+    "snyk": "^1.82.2"
   },
   "devDependencies": {
     "eslint": "3.*",
     "eslint-plugin-jsdoc": "3.*",
     "eslint-plugin-security": "1.*",
     "jsdoc": "^3.4.3"
-  }
+  },
+  "snyk": true
 }
